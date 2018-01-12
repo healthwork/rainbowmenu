@@ -1,0 +1,11 @@
+img.icon {
+    height: 38px;
+}
+
+img.digit{
+    height: 30px;
+}
+
+.pointer {
+    cursor: pointer;
+}

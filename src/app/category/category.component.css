@@ -1,0 +1,84 @@
+button {
+    border: 2px solid transparent;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem transparent; /*rgba(0, 0, 0, 0.25);*/
+}
+
+.small-button {
+    padding: 2px;
+}
+
+.button-margin {
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+.btn-red-clear {
+    background: rgba(255, 0, 0, .1);
+    border-color: #dc3545;
+}
+
+.btn-orange-clear {
+    background: rgba(255, 165, 0, .075);
+    border-color: darkorange;
+}
+
+.btn-yellow-clear {
+    background: rgba(255, 255, 0, .075);
+    border-color: gold;
+}
+
+.btn-green-clear {
+    background: rgba(40, 167, 69, .1);
+    border-color: #28a745;
+}
+
+.btn-blue-clear {
+    background: rgba(0, 123, 255, .1);
+    border-color: #007bff;
+}
+
+.btn-purple-clear {
+    background: rgba(161, 23, 230, .1);
+    border-color: #A117E6;
+}
+
+.btn-gray {
+    background: rgba(128, 128, 128, .1);
+    border-color: gray;
+}
+
+img.icon {
+    height: 38px;
+}
+
+img.digit{
+    height: 30px;
+}
+
+.cherries {
+    height: 22px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.lemon {
+    height: 22px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.melon {
+    height: 32px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.watermelon {
+    height: 38px;
+}

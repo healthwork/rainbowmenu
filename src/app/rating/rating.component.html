@@ -1,0 +1,8 @@
+<ng-container *ngFor="let expression of expressionList; let x = index">
+    <br *ngIf="(x > 0) && (x % lineBreak == 0)"/>
+    <img [src]=expression.getEmoji(0)
+         (click)="expressionHighLightClick(x); onClick()"
+         (mouseenter)="expressionHighlight(x)"
+         (mouseleave)="expressionHighlight(expressionIndex)"
+         class="rate pointer" [title]=expression.getDefinition() />
+</ng-container>

@@ -1,0 +1,184 @@
+.img-responsive{
+  max-width: 100%;
+  height: auto;
+  display:block;
+}
+
+/*-------------------------------------------------CLEAR-------------------------------------------------------------------------------------------------------------------------*/
+
+.btn-red-clear {
+    background: rgba(255, 0, 0, .1);
+    border-color: #dc3545;
+}
+
+.btn-orange-clear {
+    background: rgba(255, 165, 0, .075);
+    border-color: darkorange;
+}
+
+.btn-yellow-clear {
+    background: rgba(255, 255, 0, .075);
+    border-color: gold;
+}
+
+.btn-green-clear {
+    background: rgba(40, 167, 69, .1);
+    border-color: #28a745;
+}
+
+.btn-blue-clear {
+    background: rgba(0, 123, 255, .1);
+    border-color: #007bff;
+}
+
+.btn-purple-clear {
+    background: rgba(161, 23, 230, .1);
+    border-color: #A117E6;
+}
+
+.btn-gray-clear {
+    background: rgba(128, 128, 128, .1);
+    border-color: gray;
+}
+
+/*-------------------------------------------------SOLID-------------------------------------------------------------------------------------------------------------------------*/
+
+.btn-red{
+  color: white;
+  background-color: #dc3545;
+  border-color: darkred;
+}
+
+.btn-red:focus, .btn-red.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem darkred; /*rgba(0, 0, 0, 0.25);*/
+}
+
+.btn-orange{
+  color: black;
+  background-color: orange;
+  border-color: orangered;
+}
+
+.btn-orange:focus, .btn-orange.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem orangered; /*rgba(0, 0, 0, 0.25);*/
+}
+
+.btn-yellow{
+  color: black;
+  background-color: yellow;
+  border-color: gold;
+}
+
+.btn-yellow:focus, .btn-yellow.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem gold; /*rgba(0, 0, 0, 0.25);*/
+}
+
+.btn-green{
+  color: white;
+  background-color: #28a745;
+  border-color: darkgreen;
+}
+
+.btn-green:focus, .btn-green.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem darkgreen; /*rgba(0, 0, 0, 0.25);*/
+}
+
+.btn-blue{
+  color: white;
+  background-color: #007bff;
+  border-color: darkblue;
+}
+
+.btn-blue:focus, .btn-blue.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem darkblue; /*rgba(0, 0, 0, 0.25);*/
+}
+
+.btn-purple{
+  color: white;
+  background-color: #A117E6;
+  border-color: indigo;
+}
+
+.btn-purple:focus, .btn-purple.focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem indigo; /*rgba(0, 0, 0, 0.25);*/
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.btn-gray{
+  color: gray;
+  background-color: transparent;
+  border-color: gray;
+  /*height:40px;
+  padding-top: 3px;*/
+}
+/*
+.btn-gray > .icon{
+  height: 16px;
+  padding-bottom: 2px;
+}
+*/
+
+img.icon{
+  height: 38px;
+}
+
+button{
+  border: 2px solid transparent;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.emoji-group{
+  margin-right: 15px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.cherries {
+    height: 22px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.lemon {
+    height: 22px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.melon {
+    height: 32px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.watermelon {
+    height: 38px;
+}
+
+.btn:focus, .btn.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem transparent; /*rgba(0, 0, 0, 0.25);*/
+}
+
+img.digit{
+    height: 30px;
+}
+
+.small-button {
+    padding: 2px;
+}
+
+.button-margin {
+    margin-right: 2px;
+    margin-bottom: 2px;
+}

@@ -1,0 +1,131 @@
+
+    <div class="rate-border"
+         [ngClass]=
+             "{
+                'rate-border-red': i %6 == 5,
+                'rate-border-orange': i % 6 == 4,
+                'rate-border-yellow': i % 6 == 3,
+                'rate-border-green': i %6 == 2,
+                'rate-border-blue': i % 6 == 1,
+                'rate-border-purple': i % 6 == 0
+             }">
+
+        <div>
+            <app-category
+                [category]="rateMap.get('LOCATION')"
+                (buttonClick)="rateMap.get('LOCATION').getExpression($event).flipEnabled()"
+                [buttonClass]="'small-button button-margin'"
+                [imgClass]="'digit'">
+            </app-category>
+
+            <app-category
+                [category]="rateMap.get('TIME_UNITS')"
+                (buttonClick)="rateMap.get('TIME_UNITS').selectCategoryExpression($event); updateDays(0, i)"
+                [buttonClass]="'small-button button-margin'"
+                [imgClass]="'digit'"
+                style="margin-left: 9px">
+            </app-category>
+
+            <!--
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            -->
+
+        </div>
+
+        <div>
+            <ng-container *ngIf="!rateMap.get('TIME_UNITS').getExpression(1).isEnabled">
+                <app-digit-counter #hours
+                                   [isEnabled]=true
+                                   (click)="enableDigits([minutes], rateMap.get('TIME_UNITS').getExpression(0))"
+                                   [classType]="'digit'"
+                                   [digits]=2
+                                   [default]=[0,1]
+                                   [minValue]=[0,1]
+                                   [maxValue]="[2, 3]"
+                                   [digitReset]="2"
+                                   [digitBoundries]="[{'index': 0, 'min': 0, 'max': 2}]"
+                                   (buttonClick)="updateHours($event, i)">
+                </app-digit-counter>
+
+                <span style="color: red">:</span>
+
+                <app-digit-counter #minutes
+                                   [isEnabled]=true
+                                   [classType]="'digit'"
+                                   [incrementStep]=15
+                                   (click)="enableDigits([hours], rateMap.get('TIME_UNITS').getExpression(0))"
+                                   [digits]=2
+                                   [default]=[0,0]
+                                   [minValue]=[0,0]
+                                   [maxValue]="[3,0]"
+                                   [digitReset]="9"
+                                   (buttonClick)="updateMinutes($event, i)">
+                </app-digit-counter>
+            </ng-container>
+
+            <ng-container *ngIf="rateMap.get('TIME_UNITS').getExpression(1).isEnabled">
+                <app-digit-counter #days
+                                   [isEnabled]=true
+                                   (click)="enableDigits([days], rateMap.get('TIME_UNITS').getExpression(1))"
+                                   [classType]="'digit'"
+                                   [digits]=2
+                                   [default]=[0,1]
+                                   [minValue]=[0,1]
+                                   [maxValue]="[3, 1]"
+                                   [digitReset]="2"
+                                   (buttonClick)="updateDays($event, i)">
+                </app-digit-counter>
+            </ng-container>
+        </div>
+
+        <div>
+            <!-- FRACTIONAL_RATE -->
+            <div>
+                <ng-container *ngIf="rateMap.get('RATE_UNITS').getSelectedExpression().getDefinition() !== '100'">
+                    <img *ngFor="let expression of rateMap.get('FRACTIONAL_RATE').expressionList"
+                         [src]=expression.getEmoji(0)
+                         (click)="expression.flipEnabled(); updateFractionalRate(i, rateMap)"
+                         class="rate pointer"
+                         [title]="expression.getDefinition()"/>
+                </ng-container>
+            </div>
+
+            <!-- HIGHLIGHT SELECTION -->
+            <app-rating #rate
+                *ngIf="rateMap.get('RATE_UNITS').getSelectedExpression().getDefinition() !== '100'"
+                [expressionList]="rateMap.get('RATE').expressionList"
+                [lineBreak]=5
+                (buttonClick)="updateRate($event, i, rateMap)">
+            </app-rating>
+
+            <!-- ORANGE MORON -->
+            <img #rate
+                *ngIf="rateMap.get('RATE_UNITS').getSelectedExpression().getDefinition() === '100'"
+                [src]="rateMap.get('130000').getSelectedExpression().getEmoji(0)"
+                (click)="cycleRateUnit(rateMap, i)"
+                class="pointer red-orange"
+                [title]="rateMap.get('130000').getSelectedExpression().getDefinition()"/>
+
+            <!-- RATE UNITS (ROSE/DIAMOND/GOLD/ORANGE -->
+            <img *ngIf="rateMap.get('RATE_UNITS').getSelectedExpression().getDefinition() !== '100'"
+                 [src]="rateMap.get('RATE_UNITS').getSelectedExpression().getEmoji(0)"
+                 (click)="cycleRateUnit(rateMap, i); updateFractionalRate(i, rateMap)"
+                 (mouseenter)="rateMap.get('RATE_UNITS').getSelectedExpression().enable()"
+                 (mouseleave)="rateMap.get('RATE_UNITS').getSelectedExpression().disable()"
+                 class="rate pointer"
+                 [title]="rateMap.get('RATE_UNITS').getSelectedExpression().getDefinition()" />
+        </div>
+
+        <div>
+            <app-category
+                [category]="rateMap.get('SESSION_LENGTH')"
+                (buttonClick)="rateMap.get('SESSION_LENGTH').selectCategoryExpression($event)"
+                [buttonClass]="'small-button button-margin'"
+                [imgClass]="'digit'">
+            </app-category>
+        </div>
+
+    </div>
+
