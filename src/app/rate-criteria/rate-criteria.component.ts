@@ -20,7 +20,7 @@ export class RateCriteriaComponent implements OnInit
     rateUnitIndex = 1;
 
     //@ViewChildren("rate") rate;
-    @ViewChild("rate") rate: RatingComponent;
+    @ViewChild("rate", {static: false}) rate: RatingComponent;
 
 
     constructor() { }
