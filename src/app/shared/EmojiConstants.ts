@@ -19,6 +19,7 @@ export class EmojiConstants
     public static BLACK_CHESS_QUEEN = new Emoji(EmojiConstants.APPLE + "black_chess_queen.png", "black_chess_queen", "black");
     public static VANILLA_ICE_CREAM = new Emoji(EmojiConstants.APPLE + "vanilla_ice_cream.png", "icecream", "white");
     public static HOT_PEPPER = new Emoji(EmojiConstants.APPLE + "hot_pepper.png", "hot_pepper", "latinx");
+    public static COW = new Emoji(EmojiConstants.APPLE + "cow.png", "cow", "indian");
     public static CAMEL = new Emoji(EmojiConstants.APPLE + "camel.png", "camel", "middle eastern");
 
 //-------------------BodyType-----------------------------------------------------------------------------------------------------
@@ -68,6 +69,7 @@ export class EmojiConstants
 
     public static HONEY_POT = new Emoji(EmojiConstants.APPLE + "honey_pot.png", "honey_pot", "F");
     public static EGGPLANT = new Emoji(EmojiConstants.FLATICON + "eggplant.png", "eggplant", "M");
+    public static TRANS = new Emoji(EmojiConstants.TWITTER + "transgender_flag.png", "transgender_flag", "T");
 
 //-------------------INFO-----------------------------------------------------------------------------------------------------
 
@@ -76,6 +78,15 @@ export class EmojiConstants
 
     public static RAINBOW = new Emoji(EmojiConstants.GOOGLE + "rainbow.png", "rainbow", "everything");
     public static UMBRELLA_WITH_RAIN_DROPS = new Emoji(EmojiConstants.APPLE + "umbrella_with_rain_drops.png", "umbrella", "safe");
+
+//-------------------Socials-----------------------------------------------------------------------------------------------------
+
+    public static INSTAGRAM = new Emoji("instagram.png", "instagram");
+    public static TWITTER_LOGO = new Emoji("twitter.png", "twitter");
+    public static SWITTER = new Emoji("switter.png", "switter");
+    public static PHONE = new Emoji(EmojiConstants.APPLE + "telephone_receiver.png", "telephone_receiver", "phone");
+    public static EMAIL = new Emoji(EmojiConstants.APPLE + "email.png", "email");
+    public static URL = new Emoji(EmojiConstants.GOOGLE + "globe_with_meridians.png", "url");
 
 //-------------------Actions-----------------------------------------------------------------------------------------------------
 

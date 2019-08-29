@@ -1,0 +1,21 @@
+<ng-container *ngFor="let expression of category.expressionList; let i = index">
+    <br *ngIf="(i > 0) && (i % categoryLength == 0)"/>
+
+    <ng-container *ngIf="expression.isEnabled">
+        <input type="text" class="form-control" [(ngModel)]="socials[i]">
+    </ng-container>
+
+    <button type="button" class="btn {{buttonClass}}" data-toggle="tooltip" data-placement="top"
+        [title]="expression.getShortCode() + ' -> ' + expression.getDefinition()" (click)="onClick(i)"
+        [ngClass]="{
+            'btn-gray': !expression.isEnabled,
+            'btn-red-clear': i %6 == 0,
+            'btn-orange-clear': i % 6 == 1,
+            'btn-yellow-clear': i % 6 == 2,
+            'btn-green-clear': i %6 == 3,
+            'btn-blue-clear': i % 6 == 4,
+            'btn-purple-clear': i % 6 == 5
+        }">
+        <img *ngFor="let emoji of expression.emojis; let x = index" [src]=expression.getEmoji(x) [ngClass]="imgClass" />
+    </button>
+</ng-container>

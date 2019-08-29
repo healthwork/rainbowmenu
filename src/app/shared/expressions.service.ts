@@ -88,6 +88,7 @@ export class ExpressionsService
             new Expression([EmojiConstants.BLACK_CHESS_QUEEN], false),
             new Expression([EmojiConstants.VANILLA_ICE_CREAM], false),
             new Expression([EmojiConstants.HOT_PEPPER], false),
+            new Expression([EmojiConstants.COW], false),
             new Expression([EmojiConstants.CAMEL], false)
         ];
     }
@@ -155,16 +156,16 @@ export class ExpressionsService
     getAffiliationList()
     {
         return [
-            new Expression([EmojiConstants.AGENCY], false),
-            new Expression([EmojiConstants.INDEPENDENT], false)
+            new Expression([EmojiConstants.INDEPENDENT], false),
+            new Expression([EmojiConstants.AGENCY], false)
         ];
     }
 
     getServiceSelector()
     {
         return [
-            new Expression([EmojiConstants.RAINBOW], false),
-            new Expression([EmojiConstants.UMBRELLA_WITH_RAIN_DROPS], true)
+            new Expression([EmojiConstants.UMBRELLA_WITH_RAIN_DROPS], true),
+            new Expression([EmojiConstants.RAINBOW], false)
         ];
     }
 
@@ -229,6 +230,18 @@ export class ExpressionsService
             new Expression([EmojiConstants.PAYPAL], false),
             new Expression([EmojiConstants.GOOGLE_PAY], false),
             new Expression([EmojiConstants.APPLE_PAY], false)
+        ];
+    }
+
+    getSocialsList(): Expression[]
+    {
+        return [
+          new Expression([EmojiConstants.PHONE], false),
+          new Expression([EmojiConstants.EMAIL], false),
+          new Expression([EmojiConstants.URL], false),
+          new Expression([EmojiConstants.INSTAGRAM], false),
+          new Expression([EmojiConstants.TWITTER_LOGO], false),
+          new Expression([EmojiConstants.SWITTER], false),
         ];
     }
 

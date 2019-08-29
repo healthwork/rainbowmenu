@@ -10,7 +10,7 @@ export class Category
     {
         this.expressionList = expressionList;
         this.isRequired = isRequired;
-        this.selectedExpressionIndex = selectedExpressionIndex? selectedExpressionIndex: null;
+        this.selectedExpressionIndex = selectedExpressionIndex!==null? selectedExpressionIndex: null;
     }
 
     getSelectedExpression(): Expression

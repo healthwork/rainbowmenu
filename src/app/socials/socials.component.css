@@ -1,0 +1,23 @@
+@import "../rainbowmenu/rainbowmenu.component.css";
+
+button {
+  margin-left: 10px;
+  margin-right: unset;
+}
+
+.form-control{
+  display: inline;
+  width: 300px;
+}
+
+input{
+  background: beige;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: solid grey;
+  border-radius: unset;
+}
+.input-group-text{
+  border: none;
+}

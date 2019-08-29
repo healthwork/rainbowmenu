@@ -1,0 +1,242 @@
+<div class="container-fluid">
+            <ng-template #content let-c="close" let-d="dismiss">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="color:red">
+                        Notice: Editing the image will make it unsearchable.
+                    </h4>
+                    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img *ngIf="image" [src]="image" class="img-responsive" alt="Loading..."/>
+                    <img *ngIf="!image" [src]="loading" alt="Loading..." style="max-width: 100%">
+                </div>
+                <div class="modal-footer">
+                    <h4 class="modal-title">
+                        <button type="button" class="btn btn-success" (click)="saveBlob(); d('Cross click')">Save Rainbow Menu</button>
+                        <a hidden id="rainbowmenu" [href]="blob" download="rainbowmenu.jpg"></a>
+                    </h4>
+                </div>
+            </ng-template>
+
+            <br/>
+
+            <div id="capture" style="width:1225px; margin:auto; padding: 25px;">
+                <div class="row" style="margin-left: unset;">
+
+<!-- ==========================================Appearance=========================================================================================================== -->
+
+                    <div style="width:460px;">
+                        <ng-container *ngFor="let category of appearanceCategoryLists; let x = index">
+                            <div>
+                                <app-category
+                                    [category]="category"
+                                    (buttonClick)="category.selectCategoryExpression($event)"
+                                    [imgClass]="x==3? 'chest' : 'icon'">
+                                </app-category>
+
+                                <app-category *ngIf="x==3"
+                                    [category]="REAL"
+                                    (buttonClick)="REAL.selectCategoryExpression($event)"
+                                    [buttonClass]="'small-button button-margin'"
+                                    [imgClass]="'digit'">
+                                </app-category>
+
+                                <app-category *ngIf="x==5"
+                                    [category]="PIERCINGS"
+                                    (buttonClick)="PIERCINGS.selectCategoryExpression($event)"
+                                    [imgClass]="'icon'"
+                                    style="margin-left: 25px">
+                                </app-category>
+                            </div>
+                        </ng-container>
+                    </div>
+
+<!-- =========================================Age/Height============================================================================================================ -->
+
+                    <div style="width:330px; text-align: center">
+                        <div>
+                            <img [src]=EARTH.getEmoji(0) (click)="enableDigits([year], EARTH)" class="icon pointer"/>
+                            <app-digit-counter #year
+                                (click)="EARTH.enable()"
+                                [isYear]="true"
+                                [digits]=4
+                                [default]=[1,9,9,7]
+                                [minValue]=[1,9,9,7]
+                                [maxValue]="[2,0,0,1]"
+                                [digitBoundries]="[{'index': 2, 'min': 5, 'max': 9}, {'index': 3, 'min': 0, 'max': 1}]"
+                                [digitReset]="2"
+                                (buttonClick)="updateYear($event)">
+                            </app-digit-counter>
+                        </div>
+
+                        <br/>
+
+                        <div>
+                            <app-digit-counter #feet
+                                (click)="enableDigits([inches], FEET)"
+                                [digits]=1
+                                [default]=[5]
+                                [minValue]=[3]
+                                [maxValue]="[9]"
+                                [digitReset]="9"
+                                [digitBoundries]="[{'index': 0, 'min': 3, 'max': 6}]"
+                                (buttonClick)="updateFeet($event)">
+                            </app-digit-counter>
+
+                            <img [src]=FEET.getEmoji(0) (click)="enableDigits([feet, inches], FEET)" class="icon pointer"/>
+
+                            <app-digit-counter #inches
+                                (click)="enableDigits([feet], FEET)"
+                                [digits]=2
+                                [default]=[0,3]
+                                [minValue]=[0,0]
+                                [maxValue]="[1,1]"
+                                [digitReset]="1"
+                                (buttonClick)="updateInches($event)">
+                            </app-digit-counter>
+                        </div>
+
+                        <br />
+
+                        <div>
+                            <img [src]=SCALE.getEmoji(0) (click)="enableDigits([weight], SCALE)" class="icon pointer"/>
+                            <app-digit-counter #weight
+                                               (click)="SCALE.enable()"
+                                               [digits]=3
+                                               [default]=[1,0,5]
+                                               [minValue]=[0,8,0]
+                                               [maxValue]=[3,0,0]
+                                               [digitReset]="2"
+                                               (buttonClick)="updateWeight($event)">
+                            </app-digit-counter>
+                        </div>
+
+                        <br />
+
+                        <div style="padding-left: 40px; display: inline">
+                            <app-category
+                                [category]="genderCategory"
+                                (buttonClick)="genderCategory.selectCategoryExpression($event)"
+                                [imgClass]="'icon'">
+                            </app-category>
+
+                            <app-category
+                                [category]="TRANS"
+                                (buttonClick)="TRANS.selectCategoryExpression($event)"
+                                [buttonClass]="'small-button button-margin'"
+                                [imgClass]="'digit'">
+                            </app-category>
+                        </div>
+
+                        <br />
+
+                        <app-category
+                            [category]="affiliationCategory"
+                            (buttonClick)="affiliationCategory.selectCategoryExpression($event)"
+                            [imgClass]="'icon'">
+                        </app-category>
+
+                        <br />
+
+                        <app-category
+                            [category]="serviceSelectorCategory"
+                            (buttonClick)="serviceSelectorCategory.selectCategoryExpression($event);
+                                  selectServicesGroup(serviceSelectorCategory.getExpression($event))"
+                            [imgClass]="'icon'">
+                        </app-category>
+
+                    </div>
+
+<!-- =========================================SOCIALS============================================================================================================ -->
+
+                    <div style="width:385px; text-align: right">
+                        <app-socials
+                          [category]="socialsCategory"
+                          [socials]="socials"
+                          (buttonClick)="socialsCategory.getExpression($event).flipEnabled()"
+                          [categoryLength]="1"
+                          [imgClass]="'icon'">
+                        </app-socials>
+                    </div>
+
+                </div>
+
+                <br/>
+
+<!-- =====================================Services================================================================================================================ -->
+
+                <div>
+                    <app-category
+                        [category]="servicesCategory"
+                        (buttonClick)="checkIsStillSafe(servicesCategory.getExpression($event))"
+                        [imgClass]="'icon'">
+                    </app-category>
+                </div>
+
+                <br/>
+
+<!-- ====================================Rates================================================================================================================= -->
+
+                <div class="row" style="margin-left: unset;">
+                    <ng-container *ngFor="let rateMap of rateCategoryMapList; let i = index">
+                        <br *ngIf="(i > 0) && (i % 6 == 0)"/>
+                        <app-rate-criteria
+                            [rateMap]="rateMap"
+                            [rateObject]="rateObject"
+                            [i]="i">
+                        </app-rate-criteria>
+                    </ng-container>
+                </div>
+
+                <br/>
+
+<!-- ====================================Payment================================================================================================================= -->
+
+                <div style="text-align: right">
+                    <app-category
+                        [category]="paymentsCategory"
+                        (buttonClick)="paymentsCategory.getExpression($event).flipEnabled()"
+                        [imgClass]="'icon'">
+                    </app-category>
+                </div>
+
+                <br />
+
+                <div style="text-align: right; padding-right: 10px;">
+                    https://rainbowmenu.earth
+                </div>
+
+<!-- ====================================Capture Image Button================================================================================================================= -->
+
+            </div>
+
+            <div style="width:1195px; margin:auto; padding: 10px;">
+                <button type="button" class="btn" [ngClass]=
+                    "{
+                        'btn-gray-clear': rateCategoryMapList.length == 1,
+                        'btn-red-clear': rateCategoryMapList.length % 6 == 0,
+                        'btn-orange-clear': rateCategoryMapList.length % 6 == 5,
+                        'btn-yellow-clear': rateCategoryMapList.length % 6 == 4,
+                        'btn-green-clear': rateCategoryMapList.length % 6 == 3,
+                        'btn-blue-clear': rateCategoryMapList.length % 6 == 2,
+                        'btn-purple-clear': rateCategoryMapList.length % 6 == 1
+                    }" (click)="removeRate()">-</button>
+
+                <button type="button" class="btn" [ngClass]=
+                    "{
+                        'btn-gray-clear': rateCategoryMapList.length == 18,
+                        'btn-red-clear': rateCategoryMapList.length % 6 == 5,
+                        'btn-orange-clear': rateCategoryMapList.length % 6 == 4,
+                        'btn-yellow-clear': rateCategoryMapList.length % 6 == 3,
+                        'btn-green-clear': rateCategoryMapList.length % 6 == 2,
+                        'btn-blue-clear': rateCategoryMapList.length % 6 == 1,
+                        'btn-purple-clear': rateCategoryMapList.length % 6 == 0
+                    }" (click)="addRate()">+</button>
+
+                <div style="text-align: right">
+                    <button type="button" class="btn btn-primary" (click)="capture(content)">Preview Rainbow Menu</button>
+                </div>
+            </div>
+</div>

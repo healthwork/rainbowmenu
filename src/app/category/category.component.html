@@ -1,5 +1,5 @@
 <ng-container *ngFor="let expression of category.expressionList; let i = index">
-    <br *ngIf="(i > 0) && (i % 6 == 0)"/>
+    <br *ngIf="(i > 0) && (i % categoryLength == 0)"/>
     <button type="button" class="btn {{buttonClass}}" data-toggle="tooltip" data-placement="top"
             [title]="expression.getShortCode() + ' -> ' + expression.getDefinition()" (click)="onClick(i)"
             [ngClass]=

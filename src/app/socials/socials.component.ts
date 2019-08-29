@@ -1,12 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Category} from "../shared/Category";
 
 @Component({
-  selector: "app-category",
-  templateUrl: "./category.component.html",
-  styleUrls: ["./category.component.css"]
+  selector: 'app-socials',
+  templateUrl: './socials.component.html',
+  styleUrls: ['./socials.component.css']
 })
-export class CategoryComponent implements OnInit
+export class SocialsComponent implements OnInit
 {
     @Input() category: Category;
     @Input() imgClass: string;
@@ -15,11 +15,14 @@ export class CategoryComponent implements OnInit
 
     @Output() buttonClick: EventEmitter<number> = new EventEmitter<number>();
 
+    @Input() socials = [];
+
     constructor() { }
 
     onClick(expressionIndex: number)
     {
         this.buttonClick.emit(expressionIndex);
+        this.socials[expressionIndex] = null;
     }
 
     ngOnInit()

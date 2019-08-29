@@ -1,3 +1,5 @@
+@import "../rainbowmenu/rainbowmenu.component.css";
+
 .rate-border {
     border-radius: .25rem;
     padding: 6px;
@@ -17,22 +19,18 @@
 }
 .rate-border-yellow {
     background: rgba(255, 255, 0, .075);
-
     border: 2px solid gold;
 }
 .rate-border-green {
     background: rgba(40, 167, 69, .1);
-
     border: 2px solid #28a745;
 }
 .rate-border-blue {
     background: rgba(0, 123, 255, .1);
-
     border: 2px solid #007bff;
 }
 .rate-border-purple {
     background: rgba(161, 23, 230, .1);
-
     border: 2px solid #A117E6;
 }
 
@@ -42,27 +40,10 @@
     margin-bottom: 1px;
 }
 
-img.digit{
-    height: 30px;
-}
-
 img.rate {
     height: 30px;
 }
 
 img.red-orange{
     height: 90px;
-}
-
-.small-button {
-    padding: 2px;
-}
-
-.button-margin {
-    margin-right: 2px;
-    margin-bottom: 2px;
-}
-
-.pointer {
-    cursor: pointer;
 }

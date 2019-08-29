@@ -113,7 +113,7 @@
 
 .btn-gray{
   color: gray;
-  background-color: transparent;
+  background: rgba(128, 128, 128, .1);
   border-color: gray;
   /*height:40px;
   padding-top: 3px;*/

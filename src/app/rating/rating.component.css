@@ -1,7 +1,1 @@
-img.rate {
-    height: 30px;
-}
-
-.pointer {
-    cursor: pointer;
-}
+@import "../rate-criteria/rate-criteria.component.css";

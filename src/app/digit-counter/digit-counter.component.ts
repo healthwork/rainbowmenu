@@ -10,6 +10,7 @@ import {Expression} from "../shared/Expression";
 })
 export class DigitCounterComponent implements OnInit
 {
+    @Input() isYear: boolean;
     @Input() digits: number;
     @Input() default: number[];
     @Input() minValue: number[];
@@ -126,6 +127,17 @@ export class DigitCounterComponent implements OnInit
         const arrAsNum = DigitCounterComponent.getNumber(this.array);
         if(arrAsNum === DigitCounterComponent.getNumber(this.maxValue) ||  !this.yearDigits[0].isEnabled)
         {
+            if(this.isYear && index === 3)
+            {
+                const digitBoundry = this.getDigitBoudry(index);
+
+                if(this.array[index] === digitBoundry.max)
+                {
+                    this.array[index] = digitBoundry.min;
+                    return;
+                }
+            }
+
             let tempArray = this.minValue;
 
             if(!this.yearDigits[0].isEnabled)
@@ -155,7 +167,7 @@ export class DigitCounterComponent implements OnInit
             }
         }
 
-        const digitBoundry = this.getDigitBoudry(index);
+        const digitBoundry = (this.isYear && index === 3) ? {"min": 0, "max": 9} : this.getDigitBoudry(index);
 
         if(this.array[index] === digitBoundry.max)
         {
@@ -166,7 +178,13 @@ export class DigitCounterComponent implements OnInit
         if(this.incrementStep !== 1)
             this.stepIncrement();
         else
+        {
             this.array[index]++;
+            if(DigitCounterComponent.isGreaterThan(this.array, this.maxValue))
+            {
+                this.resetArray(this.minValue);
+            }
+        }
     }
 
     ngOnInit()
